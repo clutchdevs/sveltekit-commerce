@@ -98,7 +98,7 @@
   }
 </script>
 
-<main class={`${showCart ? 'h-screen' : 'min-h-screen'} text-white overflow-hidden`}>
+<main class={`${showCart ? 'h-screen' : 'min-h-screen'} overflow-hidden`}>
   {#if showCart}
     <ShoppingCart
       items={cartItems}

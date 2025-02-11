@@ -81,14 +81,14 @@
               <div class="absolute right-0 bottom-0 z-40 p-6 ">
                 <button
                   onclick={() => changeHighlightedImage('back')}
-                  class="border border-b border-t border-l border-black py-4 px-8"
+                  class="border cursor-pointer border-b border-t border-l border-blue py-4 px-8"
                   aria-label="Previous image"
                 >
                   <Icons type="arrowLeft" />
                 </button>
                 <button
                   onclick={() => changeHighlightedImage('next')}
-                  class="-ml-1 border border-black py-4 px-8"
+                  class="border cursor-pointer border-b border-t border-r border-blue py-4 px-8"
                   aria-label="Next image"
                 >
                   <Icons type="arrowRight" />
@@ -103,7 +103,7 @@
               onclick={() => {
                 currentImageIndex = i;
               }}
-              class="h-full w-1/4 bg-white"
+              class="h-full w-1/4 bg-green/50"
               aria-label={`View image ${i + 1}`}
             >
               <GridTile imageSrc={variant.node.originalSrc} removeLabels={true} />
@@ -123,7 +123,7 @@
                   }}
                   class={`${value.length <= 3 ? 'w-12' : 'px-2'} ${
                     selectedOptions[option.name] === value ? 'opacity-100' : 'opacity-60'
-                  } transition duration-300 ease-in-out hover:scale-110 hover:opacity-100 border-white h-12 mr-3 flex items-center justify-center rounded-full border cursor-pointer`}
+                  } transition duration-300 ease-in-out hover:scale-110 hover:opacity-100 border-blue h-12 mr-3 flex items-center justify-center rounded-full border cursor-pointer`}
                 >
                   {value}
                 </button>
@@ -132,7 +132,7 @@
           </div>
         {/each}
         <p class="text-sm">{data.body.product.description}</p>
-        <div class="mt-8 flex items-center justify-between">
+        <div class="mt-8 text-blue flex items-center justify-between">
           <div class="flex items-center">
             <div class="mr-1">
               <Icons type="star" />
@@ -150,11 +150,10 @@
               <Icons type="star" />
             </div>
           </div>
-          <div class="text-sm opacity-50">36 Reviews</div>
         </div>
         <button
           onclick={addToCart}
-          class="mt-6 cursor-pointer flex w-full items-center justify-center bg-light p-4 text-sm uppercase tracking-wide text-black opacity-90 hover:opacity-100"
+          class="mt-6 cursor-pointer flex w-full items-center justify-center bg-blue p-4 text-sm uppercase tracking-wide text-white font-semibold opacity-90 hover:opacity-100"
         >
           <span>Add To Cart</span>
           {#if cartLoading}
@@ -172,7 +171,7 @@
         />
         <DescriptionToggle
           title="Details"
-          description="This is a limited edition production run. Printing starts when the drop ends. Reminder: Bad Boys For Life. Shipping may take 10+ days due to COVID-19."
+          description="This is a limited edition production run. Printing starts when the drop ends."
         />
       </div>
     </div>
@@ -182,7 +181,7 @@
         {#each data.body.featuredProducts as product (product.node.id)}
           <li>
             <div
-              class="group relative block aspect-square overflow-hidden border border-white/20 bg-zinc-800/50"
+              class="group relative block aspect-square overflow-hidden border border-blue/20 bg-zinc-800/50"
             >
               <GridTile
                 removeLabels={true}

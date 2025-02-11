@@ -56,23 +56,30 @@
       closeCart();
     }
   }
+
+  function handleInnerClick(event) {
+    event.stopPropagation();
+  }
 </script>
 
 <div
-  class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden bg-black/50"
+  class="absolute inset-0 z-50 flex max-h-screen w-full justify-end overflow-hidden"
   onclick={closeCart}
   onkeydown={handleKeyDown}
   role="dialog"
   aria-label="Shopping Cart"
   tabindex="0"
 >
-  <div class="z-50 w-full bg-black p-6 md:w-1/2 lg:w-1/3 relative">
+  <div 
+    class="z-50 w-full border-l border-blue bg-white p-6 md:w-1/2 lg:w-1/3 relative"
+    onclick={handleInnerClick}
+  >
     {#if loading}
       <div class="absolute inset-0 bg-black/50 z-50"></div>
     {/if}
     <div class="mb-6 flex w-full items-center justify-between">
       <div class="text-2xl font-medium">My Cart</div>
-      <button onclick={closeCart} class="text-sm uppercase opacity-80 hover:opacity-100">close</button>
+      <button onclick={closeCart} class="text-sm uppercase opacity-80 hover:opacity-100 cursor-pointer">close</button>
     </div>
     {#if items.length === 0}
       <div class="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
@@ -89,7 +96,7 @@
             alt={item.node.merchandise.product.title}
             decoding="async"
             loading="lazy"
-            class="w-20 flex-none bg-white"
+            class="w-20 flex-none"
             src={item.node.merchandise.product.images.edges[0].node.originalSrc}
           />
           <div class="ml-4 flex w-full flex-col justify-between">
@@ -105,28 +112,28 @@
         <div class="mb-4 flex w-full">
           <button
             onclick={() => removeEntireItem(item)}
-            class="mr-2 flex h-8 w-8 items-center justify-center border border-white/40 bg-white/0 hover:bg-white/10"
+            class="mr-2 flex h-8 w-8 items-center justify-center border border-blue hover:bg-blue/10 cursor-pointer"
             aria-label="Remove item"
           >
-            <Icons type="close" strokeColor="#fff" />
+            <Icons type="close" strokeColor="#000" />
           </button>
-          <div class="flex h-8 w-full border border-white/40">
+          <div class="flex h-8 w-full border border-blue">
             <div class="flex h-full items-center px-2">
               {item.node.quantity}
             </div>
             <button
               onclick={() => removeOneItem(item)}
-              class="ml-auto flex h-8 w-8 items-center justify-center border-l border-white/40 bg-white/0 hover:bg-white/10"
+              class="ml-auto flex h-8 w-8 items-center justify-center border-l border-blue/40 bg-white/0 hover:bg-blue/10 cursor-pointer"
               aria-label="Decrease quantity"
             >
-              <Icons type="minus" strokeColor="#fff" />
+              <Icons type="minus" strokeColor="#000" />
             </button>
             <button
               onclick={() => addOneItem(item)}
-              class="flex h-8 w-8 items-center justify-center border-l border-white/40 bg-white/0 hover:bg-white/10"
+              class="flex h-8 w-8 items-center justify-center border-l border-blue/40 bg-white/0 hover:bg-blue/10 cursor-pointer"
               aria-label="Increase quantity"
             >
-              <Icons type="plus" strokeColor="#fff" />
+              <Icons type="plus" strokeColor="#000" />
             </button>
           </div>
         </div>
@@ -135,7 +142,7 @@
     {#if items.length !== 0}
       <button
         onclick={checkout}
-        class="mt-6 flex w-full items-center justify-center bg-white p-3 text-sm font-medium uppercase text-black opacity-90 hover:opacity-100"
+        class="mt-6 flex w-full items-center justify-center bg-blue p-3 text-sm font-medium uppercase text-white opacity-90 hover:opacity-100 cursor-pointer"
       >
         <span>Proceed to Checkout</span>
         {#if loading}

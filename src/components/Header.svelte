@@ -30,14 +30,14 @@
     <div class="mr-4" class:active={currentRoute === '/'}>
       <a href="/" data-sveltekit-prefetch class="">
         <picture>
-          <source srcset="/svelte_logo.png" type="image/png" />
+          <source srcset="/clutch_logo.png" type="image/png" />
           <img
             alt="Svelte Logo"
             class="h-[38] w-[32]"
             decoding="async"
             height={38}
             loading="eager"
-            src="/svelte_logo.png"
+            src="/clutch_logo.png"
             width={32}
           />
         </picture>
@@ -49,7 +49,7 @@
           <a
             data-sveltekit-prefetch
             href={tab.path}
-            class={`hover:opacity-100 px-2 py-1 text-white rounded-lg ${
+            class={`hover:opacity-100 px-2 py-1 rounded-lg ${
               currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
             }`}>{tab.name}</a
           >
@@ -61,11 +61,11 @@
     <SearchBar />
   </div>
   <div class="ml-auto flex items-center">
-    <button onclick={onOpenCart} class="relative my-2 mx-4 cursor-pointer">
-      <Icons strokeColor="#fff" type="cart" />
+    <button onclick={onOpenCart} class="border border-blue p-2 rounded-full relative my-2 mx-4 cursor-pointer">
+      <Icons strokeColor="#000" type="cart" />
       <div
         data-test="cart-quantity"
-        class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
+        class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-blue bg-white text-xs text-black"
       >
         {$cartQuantity}
       </div>
@@ -101,7 +101,7 @@
           <button onclick={onOpenCart} class="relative mr-4 cursor-pointer">
             <Icons strokeColor="#fff" type="cart" />
             <div
-              class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white text-xs text-black"
+              class="absolute bottom-0 left-0 -ml-3 -mb-3 flex h-5 w-5 items-center justify-center rounded-full border border-blue text-xs text-black"
             >
               {$cartQuantity}
             </div>
@@ -118,7 +118,7 @@
               <a
                 data-sveltekit-prefetch
                 href={tab.path}
-                class={`hover:opacity-100 px-2 py-1 text-white font-bold text-xl rounded-lg ${
+                class={`hover:opacity-100 px-2 py-1 font-bold text-xl rounded-lg ${
                   currentRoute === tab.path ? 'opacity-100' : 'opacity-75'
                 }`}>{tab.name}</a
               >

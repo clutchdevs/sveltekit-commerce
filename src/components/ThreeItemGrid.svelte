@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex flex-col lg:h-full lg:flex-row">
-  <div class="h-[60vh] w-full bg-dark lg:h-full lg:w-2/3">
+  <div class="h-[60vh] w-full bg-blue/50 lg:h-full lg:w-2/3">
     <GridTile
       priority="eager"
       href={`/product/${products[0].node.handle}`}
@@ -17,7 +17,7 @@
     />
   </div>
   <div class="w-full lg:h-full lg:w-1/3">
-    <div class="h-[60vh] w-full bg-light lg:h-1/2">
+    <div class="h-[60vh] w-full bg-green/50 lg:h-1/2">
       <GridTile
         priority="eager"
         href={`/product/${products[1].node.handle}`}
@@ -27,7 +27,7 @@
         imageSrc={products[1].node.images.edges[0].node.originalSrc}
       />
     </div>
-    <div class="h-[60vh] w-full bg-svelteOrange lg:h-1/2">
+    <div class="h-[60vh] w-full bg-gray lg:h-1/2">
       <GridTile
         priority="eager"
         href={`/product/${products[2].node.handle}`}
